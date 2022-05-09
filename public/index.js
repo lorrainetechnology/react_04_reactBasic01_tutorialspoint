@@ -573,27 +573,63 @@
 	  };
 	}
 
-	var HelloWorld = /*#__PURE__*/function (_React$Component) {
-	  _inherits(HelloWorld, _React$Component);
+	function styleInject(css, ref) {
+	  if ( ref === void 0 ) ref = {};
+	  var insertAt = ref.insertAt;
 
-	  var _super = _createSuper(HelloWorld);
+	  if (!css || typeof document === 'undefined') { return; }
 
-	  function HelloWorld() {
-	    _classCallCheck(this, HelloWorld);
+	  var head = document.head || document.getElementsByTagName('head')[0];
+	  var style = document.createElement('style');
+	  style.type = 'text/css';
+
+	  if (insertAt === 'top') {
+	    if (head.firstChild) {
+	      head.insertBefore(style, head.firstChild);
+	    } else {
+	      head.appendChild(style);
+	    }
+	  } else {
+	    head.appendChild(style);
+	  }
+
+	  if (style.styleSheet) {
+	    style.styleSheet.cssText = css;
+	  } else {
+	    style.appendChild(document.createTextNode(css));
+	  }
+	}
+
+	var css_248z$1 = "div.itemStyle {\r\n    color: brown;\r\n    font-size: 14px;\r\n}";
+	styleInject(css_248z$1);
+
+	var css_248z = "div.ExpenseEntryItem-module_itemStyle__fyiN5 {\r\n    color: brown;\r\n    font-size: 14px;\r\n}";
+	var styles = {"itemStyle":"ExpenseEntryItem-module_itemStyle__fyiN5"};
+	styleInject(css_248z);
+
+	var ExpenseEntryItem = /*#__PURE__*/function (_React$Component) {
+	  _inherits(ExpenseEntryItem, _React$Component);
+
+	  var _super = _createSuper(ExpenseEntryItem);
+
+	  function ExpenseEntryItem() {
+	    _classCallCheck(this, ExpenseEntryItem);
 
 	    return _super.apply(this, arguments);
 	  }
 
-	  _createClass(HelloWorld, [{
+	  _createClass(ExpenseEntryItem, [{
 	    key: "render",
 	    value: function render() {
-	      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Hello World!"));
+	      return /*#__PURE__*/React.createElement("div", {
+	        className: styles.itemStyle
+	      }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "Item:"), " ", /*#__PURE__*/React.createElement("em", null, "Mango Juice")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "Amount:"), " ", /*#__PURE__*/React.createElement("em", null, "30.00")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "Spend Date:"), " ", /*#__PURE__*/React.createElement("em", null, "2020-10-10")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, "Category:"), " ", /*#__PURE__*/React.createElement("em", null, "Food")));
 	    }
 	  }]);
 
-	  return HelloWorld;
+	  return ExpenseEntryItem;
 	}(React.Component);
 
-	ReactDOM.render( /*#__PURE__*/React.createElement(React.StrictMode, null, /*#__PURE__*/React.createElement(HelloWorld, null)), document.getElementById('root'));
+	ReactDOM.render( /*#__PURE__*/React.createElement(React.StrictMode, null, /*#__PURE__*/React.createElement(ExpenseEntryItem, null)), document.getElementById('root'));
 
 })();

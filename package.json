@@ -1,0 +1,40 @@
+{
+  "name": "04_reactbasic01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "public/index.js",
+  "style": "public/styles.css",
+  "files": [
+    "public"
+  ],
+  "scripts": {
+    "start": "rollup -c -w",
+    "build": "rollup",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "core-js": "^3.22.4",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "regenerator-runtime": "^0.13.9"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/preset-env": "^7.17.10",
+    "@babel/preset-react": "^7.16.7",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-replace": "^4.0.0",
+    "postcss": "8.1",
+    "postcss-modules": "^4.3.1",
+    "rollup": "^2.72.1",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-serve": "^1.1.0"
+  }
+}
